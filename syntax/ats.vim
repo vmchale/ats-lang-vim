@@ -1,21 +1,3 @@
-" Vim syntax file
-" Language:    ATS
-" Filenames:   *.dats *.sats *.cats *.hats
-" Maintainer:  Artyom Shalkhakov <artyom.shalkhakov@gmail.com>
-" Last Change: Jun 27, 2009
-" Version:     1
-" URL:         http://artyoms.idhost.kz
-"
-" Huge thanks to maintainers of c.vim, haskell.vim, d.vim,
-" html.vim.
-"
-" TODO:
-" - make assignment of syntax groups more specific
-"   (see sml.vim for let/local/begin/etc.)
-" - highlight viewt@ype, etc. as keywords
-" - report errors on mismatching braces/parens/brackets
-" - highlight @ as a StorageClass?
-
 if !exists("main_syntax")
   if version < 600
       syntax clear
@@ -24,6 +6,8 @@ if !exists("main_syntax")
   endif
   let main_syntax = 'ats'
 endif
+
+syn region atsIncludes start='#include' end='\v$'
 
 "
 " lexical
@@ -124,6 +108,9 @@ syn region  atsPreProc matchgroup=atsPreCondit start="^\s*\(%:\|#\)\s*\(pragma\>
 
 " don't use standard HiLink, it won't work with included syntax files
 command! -nargs=+ AtsHiLink hi def link <args>
+
+" includes
+AtsHiLink atsIncludes Special
 
 " comments
 AtsHiLink atsCommentStart atsComment
