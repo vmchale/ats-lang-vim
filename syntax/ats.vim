@@ -7,7 +7,7 @@ if !exists("main_syntax")
   let main_syntax = 'ats'
 endif
 
-syn region atsIncludes start='#include' end='\v$'
+syn region atsIncludes start='\v^#include' end='\v$'
 
 "
 " lexical
@@ -110,7 +110,7 @@ syn region  atsPreProc matchgroup=atsPreCondit start="^\s*\(%:\|#\)\s*\(pragma\>
 command! -nargs=+ AtsHiLink hi def link <args>
 
 " includes
-AtsHiLink atsIncludes Special
+hi def link atsIncludes Special
 
 " comments
 AtsHiLink atsCommentStart atsComment
