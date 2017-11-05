@@ -7,7 +7,7 @@ if !exists("main_syntax")
   let main_syntax = 'ats'
 endif
 
-syn region atsIncludes start='\v^\#include' end='\v$'
+syn match atsIncludes '\v^#include.*$'
 
 "
 " lexical
