@@ -13,8 +13,8 @@ syn match atsIncludes '\v^#include.*$'
 " lexical
 "
 
-" comment highlighting, mostly ripped from c.vim
-syn keyword atsTodo TODO FIXME TEMP XXX HACKHACKHACK DEBUG NOTE contained
+" comment highlighting
+syn keyword atsTodo TODO FIXME NOTE contained
 syn match   atscCommentError display "\*/"
 syn match   atscCommentStartError display "/\*"me=e-1 contained
 syn region  atscComment matchgroup=atscCommentStart start="/\*" end="\*/" contains=atsTodo,@Spell,atscCommentStartError
