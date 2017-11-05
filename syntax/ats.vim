@@ -31,6 +31,7 @@ syn region  atsComment start="////" end="\%$" contains=atsTodo
 syn match   atsSpecial display contained "\\\(x\x\+\|\o\{1,3}\|.\|$\)"
 syn match   atsSpecial display contained "\\\(u\x\{4}\|U\x\{8}\)"
 syn match   atsSpecial '\\n'
+syn match   atsSpecial '@'
 syn match   atsFormat display "%\(\d\+\$\)\=[-+' #0*]*\(\d*\|\*\|\*\d\+\$\)\(\.\(\d*\|\*\|\*\d\+\$\)\)\=\([hlL]\|ll\)\=\([bdiuoxXDOUfeEgGcCsSpn]\|\[\^\=.[^]]*\]\)" contained
 syn region  atsStringDenot start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=atsSpecial,atsFormat,atsSpecial,@Spell
 syn match   atsCharDenot "'[^\\]'"
