@@ -7,7 +7,7 @@ if !exists("main_syntax")
   let main_syntax = 'ats'
 endif
 
-syn region atsIncludes start='\v^#include' end='\v$'
+syn region atsIncludes start='\v^\#include' end='\v$'
 
 "
 " lexical
@@ -96,8 +96,8 @@ syn match   atsPreCondit display "^\s*\(%:\|#\)\s*\(else\|endif\)\>"
 syn region  atsCppOut start="^\s*\(%\|#\)\s*if\s\+0\+\>" end=".\@=\|$" contains=atsCppOut2
 syn region  atsCppOut2 contained start="0" end="^\s*\(%:\|#\)\s*\(endif\>\|else\>\|elif\>\)" contains=atsCppSkip
 syn region  atsCppSkip contained start="^\s*\(%:\|#\)\s*\(if\>\|ifdef\>\|ifndef\>\)" skip="\\$" end="^\s*\(%:\|#\)\s*endif\>" contains=atsCppSkip
-syn region  atsIncluded contained start=+"+ skip=+\\\\\|\\"+ end=+"+
-syn match   atsIncluded contained "<[^>]*>"
+syn region  atsIncluded display contained start=+"+ skip=+\\\\\|\\"+ end=+"+
+syn match   atsIncluded display contained "<[^>]*>"
 syn match   atsInclude "^\s*\(%:\|#\)\s*include\>\s*["<]" contains=atsIncluded
 syn cluster atsPreProcGroup contains=atsPreCondit,atsIncluded,atsInclude,atsDefine,atsCppOut,atsCppOut2,atsCppSkip
 syn region  atsDefine matchgroup=atsPreCondit start="\s*\(%:\|#\)\s*\(define\|undef\)\>" skip="\\$" end="$"
