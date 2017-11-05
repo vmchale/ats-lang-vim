@@ -29,11 +29,12 @@ syn region  atsComment start="////" end="\%$" contains=atsTodo
 " denotation highlighting
 "
 
-" special characters, copied from c.vim
+" special characters
 syn match   atsSpecial display contained "\\\(x\x\+\|\o\{1,3}\|.\|$\)"
 syn match   atsSpecial display contained "\\\(u\x\{4}\|U\x\{8}\)"
+syn match   atsSpecial '\\n'
 syn match   atsFormat display "%\(\d\+\$\)\=[-+' #0*]*\(\d*\|\*\|\*\d\+\$\)\(\.\(\d*\|\*\|\*\d\+\$\)\)\=\([hlL]\|ll\)\=\([bdiuoxXDOUfeEgGcCsSpn]\|\[\^\=.[^]]*\]\)" contained
-syn region  atsStringDenot start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=atsSpecial,atsFormat,@Spell
+syn region  atsStringDenot start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=atsSpecial,atsFormat,atsSpecial,@Spell
 syn match   atsCharDenot "'[^\\]'"
 syn match   atsCharDenot "'[^']*'" contains=atsSpecial
 
@@ -84,7 +85,6 @@ syn keyword atsKeyword prval praxi datasort
 
 syn keyword atsSorts bool char int prop type view viewtype
 
-syn match atsSpecial '\\n'
 syn keyword atsTypes string float double void
 
 syn match   atsSym "[%&+-\./:=@~`^|*!$#?]+\|[%&+-\./:=@~`^|*<>]+"
