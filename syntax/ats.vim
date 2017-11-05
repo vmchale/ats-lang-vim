@@ -1,7 +1,5 @@
-if !exists("main_syntax")
-  if version < 600
-      syntax clear
-  elseif exists("b:current_syntax")
+if !exists('main_syntax')
+  if exists('b:current_syntax')
       finish
   endif
   let main_syntax = 'ats'
@@ -57,7 +55,7 @@ syn match   atsIdent "[A-Za-z_][0-9A-Za-z_\']*"
 
 " embedded C
 " %{^ %} %{ %} %{$ %} %{# %}
-if main_syntax != 'c' || exists('c')
+if main_syntax !=# 'c' || exists('c')
     syn include @atsC syntax/c.vim
     unlet b:current_syntax
     syn region embC start=+%{[^#$]\=+ keepend end=+%}+ contains=@atsC
@@ -160,9 +158,9 @@ AtsHiLink atsAllErrs Error
 
 delcommand AtsHiLink
 
-let b:current_syntax = "ats"
+let b:current_syntax = 'ats'
 
-if main_syntax == "ats"
+if main_syntax ==# 'ats'
     unlet main_syntax
 endif
 
