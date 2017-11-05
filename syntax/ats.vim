@@ -84,6 +84,7 @@ syn keyword atsKeyword prval praxi datasort
 
 syn keyword atsSorts bool char int prop type view viewtype
 
+syn match atsSpecial '\\n'
 syn keyword atsTypes string float double void
 
 syn match   atsSym "[%&+-\./:=@~`^|*!$#?]+\|[%&+-\./:=@~`^|*<>]+"
@@ -110,7 +111,8 @@ syn region  atsPreProc matchgroup=atsPreCondit start="^\s*\(%:\|#\)\s*\(pragma\>
 command! -nargs=+ AtsHiLink hi def link <args>
 
 " includes
-hi def link atsIncludes Special
+AtsHiLink atsIncludes Special
+AtsHiLink atsSpecial Special
 
 " comments
 AtsHiLink atsCommentStart atsComment
