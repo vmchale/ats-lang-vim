@@ -73,7 +73,7 @@ syn keyword atsCond if then else case
 syn keyword atsRepeat while
 syn keyword atsException exception raise try
 syn keyword atsStatement let in where local
-syn keyword atsStatement val and fun fn lam fix rec var of
+syn keyword atsStatement val and fnx fun fn lam fix rec var of
 syn keyword atsStatement begin end
 syn keyword atsTypedef typedef sortdef viewtypedef
 syn keyword atsStructure datatype abstype dataviewtype dataprop dataview
