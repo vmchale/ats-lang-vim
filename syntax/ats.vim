@@ -139,6 +139,7 @@ AtsHiLink atsCond Conditional
 AtsHiLink atsRepeat Repeat
 AtsHiLink atsException Exception
 AtsHiLink atsStatement Statement
+AtsHiLink atsKeyword Statement
 AtsHiLink atsTypedef Typedef
 AtsHiLink atsStructure Structure
 AtsHiLink atsExternal StorageClass
