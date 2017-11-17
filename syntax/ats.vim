@@ -50,7 +50,7 @@ syn match   atsFloat display contained "\d\+e[-+]\=\d\+\>"
 syn match   atsOctalError display contained "0\o*[89]\d*"
 syn case match
 
-syn region atsIncludes oneline start='\v^\#include' end='"'
+syn region atsIncludes oneline start='#include' end='"'
 syn match   atsIdent "[A-Za-z_][0-9A-Za-z_\']*"
 
 " embedded C
