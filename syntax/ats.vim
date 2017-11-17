@@ -143,6 +143,7 @@ AtsHiLink atsTypedef Typedef
 AtsHiLink atsStructure Structure
 AtsHiLink atsExternal StorageClass
 AtsHiLink atsTypes Type
+AtsHiLink atsSorts Type
 AtsHiLink atsSym Operator
 AtsHiLink atsEncl Keyword
 " embedded C
