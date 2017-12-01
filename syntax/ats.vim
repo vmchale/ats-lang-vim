@@ -50,7 +50,7 @@ syn match   atsFloat display contained "\d\+e[-+]\=\d\+\>"
 syn match   atsOctalError display contained "0\o*[89]\d*"
 syn case match
 
-syn region  atsIncludes display oneline start='#include' end='"' contains=atsStringDenot
+syn region  atsIncludes oneline start='#include' end='"' contains=atsStringDenot
 syn match   atsIdent "[A-Za-z_][0-9A-Za-z_\']*"
 
 " embedded C
@@ -81,7 +81,7 @@ syn keyword atsExternal extern implement
 syn keyword atsKeyword symintr overload with
 syn keyword atsKeyword prval praxi datasort
 
-syn keyword atsSorts bool char int prop type view viewtype
+syn keyword atsSorts bool char int prop type view viewtype nat
 
 syn keyword atsTypes string float double void
 
