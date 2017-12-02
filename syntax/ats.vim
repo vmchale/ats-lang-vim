@@ -81,7 +81,7 @@ syn keyword atsExternal extern implement
 syn keyword atsKeyword symintr overload with
 syn keyword atsKeyword prval praxi datasort
 
-syn keyword atsSorts bool char int prop type view viewtype nat
+syn keyword atsSorts bool char int prop type view viewtype nat absvtype
 
 syn keyword atsTypes string float double void
 
