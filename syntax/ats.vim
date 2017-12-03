@@ -75,7 +75,7 @@ syn keyword atsStatement let in where local
 syn keyword atsStatement val and fnx fun fn lam fix rec var of
 syn keyword atsStatement begin end
 syn keyword atsTypedef typedef sortdef viewtypedef vtypedef
-syn keyword atsStructure datatype abstype dataviewtype dataprop dataview
+syn keyword atsStructure datatype datavtype abstype dataviewtype dataprop dataview
 syn keyword atsExternal extern implement
 
 syn keyword atsKeyword symintr overload with
