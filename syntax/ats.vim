@@ -30,7 +30,7 @@ syn match   atsSpecial display contained "\\\(x\x\+\|\o\{1,3}\|.\|$\)"
 syn match   atsSpecial display contained "\\\(u\x\{4}\|U\x\{8}\)"
 syn match   atsSpecial '\\n'
 syn match   atsSpecial '@'
-" syn match   atsSpecial '#\['
+" syn match   atsSpecial '#'
 syn match   atsFormat display "%\(\d\+\$\)\=[-+' #0*]*\(\d*\|\*\|\*\d\+\$\)\(\.\(\d*\|\*\|\*\d\+\$\)\)\=\([hlL]\|ll\)\=\([bdiuoxXDOUfeEgGcCsSpn]\|\[\^\=.[^]]*\]\)" contained
 syn region  atsStringDenot start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=atsSpecial,atsFormat,atsSpecial,@Spell
 syn match   atsCharDenot "'[^\\]'"
@@ -73,7 +73,7 @@ syn keyword atsCond if then else case
 syn keyword atsRepeat while
 syn keyword atsException exception raise try
 syn keyword atsStatement let in where local
-syn keyword atsStatement val and fnx fun fn llam lam fix rec var of assume
+syn keyword atsStatement val and fnx fun fn llam lam fix rec var of assume castfn prfun
 syn keyword atsStatement begin end
 syn keyword atsTypedef typedef sortdef viewtypedef vtypedef
 syn keyword atsStructure datatype datavtype abstype dataviewtype dataprop dataview
