@@ -75,7 +75,7 @@ syn keyword atsException exception raise try
 syn keyword atsStatement let in where local
 syn keyword atsStatement val and fnx fun fn llam lam fix rec var of assume castfn prfun
 syn keyword atsStatement begin end
-syn keyword atsTypedef typedef sortdef viewtypedef vtypedef
+syn keyword atsTypedef typedef sortdef viewtypedef vtypedef viewdef
 syn keyword atsStructure datatype datavtype abstype dataviewtype dataprop dataview
 syn keyword atsExternal extern implement
 
