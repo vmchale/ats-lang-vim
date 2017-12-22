@@ -68,8 +68,8 @@ endif
 
 " keyword highlighting
 syn keyword atsKeyword prefix postfix infix infixl infixr op nonfix
-syn keyword atsKeyword staload stadef sta
-syn keyword atsCond if then else case
+syn keyword atsKeyword staload stadef sta dynload
+syn keyword atsCond if then else case sif
 syn keyword atsRepeat while
 syn keyword atsException exception raise try
 syn keyword atsStatement let in where local
@@ -82,7 +82,7 @@ syn keyword atsExternal extern implement primplmnt
 syn keyword atsKeyword symintr overload with
 syn keyword atsKeyword prval praxi datasort
 
-syn keyword atsSorts bool char int absprop prop type view viewtype nat absvtype
+syn keyword atsSorts bool char int absprop prop type view viewtype nat absvtype absviewtype
 
 syn keyword atsTypes string float double void
 
@@ -94,7 +94,7 @@ syn region  atsPreCondit start="^\s*\(%:\|#\)\s*\(if\|ifdef\|ifndef\|elif\)\>" s
 syn match   atsPreCondit display "^\s*\(%:\|#\)\s*\(else\|endif\)\>"
 syn region  atsCppOut start="^\s*\(%\|#\)\s*if\s\+0\+\>" end=".\@=\|$" contains=atsCppOut2
 syn region  atsCppOut2 contained start="0" end="^\s*\(%:\|#\)\s*\(endif\>\|else\>\|elif\>\)" contains=atsCppSkip
-syn region  atsCppSkip contained start="^\s*\(%:\|#\)\s*\(if\>\|ifdef\>\|ifndef\>\)" skip="\\$" end="^\s*\(%:\|#\)\s*endif\>" contains=atsCppSkip
+syn region  atsCppSkip contained start="^\s*\(%:\|#\)\s*\(if\>\|ifdef\>\|print\>\|ifndef\>\)" skip="\\$" end="^\s*\(%:\|#\)\s*endif\>" contains=atsCppSkip
 syn region  atsIncluded display contained start=+"+ skip=+\\\\\|\\"+ end=+"+
 syn match   atsIncluded display contained "<[^>]*>"
 syn match   atsInclude "^\s*\(%:\|#\)\s*include\>\s*["<]" contains=atsIncluded
