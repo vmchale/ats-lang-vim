@@ -11,8 +11,7 @@ function! SyntaxCheckers_ats_patscc_GetLocList() dict
                 \ 'args': '-DATS_MEMALLOC_LIBC',
                 \ 'fname': shellescape(expand('%') )})
 
-    let errorformat =
-                \ '%f:%r'
+    let errorformat = '%f:%m'
 
     let loclist = SyntasticMake({ 
             \ 'makeprg': makeprg,
