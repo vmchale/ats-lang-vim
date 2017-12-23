@@ -25,4 +25,4 @@ if g:ats_autoformat == 1
     augroup END
 endif
 
-command Format call AtsFormat()
+command -nargs=0 Format call AtsFormat()
