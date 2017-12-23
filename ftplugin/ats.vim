@@ -32,6 +32,10 @@ function! AtsFormat()
     call setpos('.', cursor)
 endfunction
 
+augroup ats
+    autocmd BufWritePre *.ats,*.dats,*.cats,*.sats execute 'lcd %:p:h'
+augroup END
+
 " format on write
 if g:ats_autoformat == 1
     augroup ats
