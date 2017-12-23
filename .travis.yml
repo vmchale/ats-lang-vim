@@ -1,0 +1,6 @@
+language: python
+install: pip install vim-vint
+script:
+    - vint syntax/ats.vim
+    - vint ftdetect/ats.vim
+    - vint ftplugin/ats.vim
