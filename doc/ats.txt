@@ -1,0 +1,30 @@
+*ats* ATS environment in vim
+
+=====================================================================
+CONTENTS                                                *ATSContents*
+
+    1. Usage ............................................. ❘ATSUsage❘
+    2. Config ........................................... ❘ATSConfig❘
+
+=====================================================================
+Section 1: Usage                                           *ATSUsage*
+
+By default, ats-vim provides one command, viz.
+
+:Format                                                     *:Format*
+    Run atsfmt on current file and reload with changes>
+        :Format
+<
+
+======================================================================
+Section 2: Config                                          *ATSConfig*
+
+----------------------------------------------------------------------
+                                                  *'g:ats_autoformat'*
+Values: 0, 1
+Default: 0
+
+When set to 1, the current buffer will be formatted every time it is
+written to.>
+    let g:ats_autoformat='1'
+<
