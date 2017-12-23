@@ -41,4 +41,4 @@ endif
 
 " commands
 command -nargs=0 Format call AtsFormat()
-command -nargs=0 Check SyntasticCheck patscc
+" command -nargs=0 Check SyntasticCheck patscc
