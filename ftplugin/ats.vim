@@ -21,7 +21,7 @@ au BufNewFile,BufRead *.*ats
 setlocal commentstring=(*\ %s\ *)
 
 " register patscc as a checker
-let g:syntastic_ats_checkers = [ 'patscc' ]
+" let g:syntastic_ats_checkers = [ 'patscc' ]
 
 " function to format our buffer
 function! AtsFormat()
