@@ -28,3 +28,10 @@ When set to 1, the current buffer will be formatted every time it is
 written to. >
     let g:ats_autoformat='1'
 <
+
+                                                            *ClearATS*
+
+If you would like to bind a key to clear error messages use something
+like the following in your .vimrc: >
+    au BufNewFile,BufRead *.*ats nmap <Leader>h <Plug>Clear
+<
