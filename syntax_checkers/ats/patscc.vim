@@ -8,6 +8,7 @@ let g:syntastic_ats_patscc_exec = 'patscc'
 function! Cleanup(errors) abort " {{{2
    
     exec 'silent !rm -f a.out'
+    exec 'echo "here"'
 
     return a:errors
 
