@@ -20,8 +20,8 @@ au BufNewFile,BufRead *.*ats
 " set comment string to something prettier
 setlocal commentstring=(*\ %s\ *)
 
-" register patscc as a checker
-" let g:syntastic_ats_checkers = [ 'patscc' ]
+" use patscc as a checker
+let g:syntastic_ats_checkers = [ 'patscc' ]
 
 " function to format our buffer
 function! AtsFormat()
@@ -41,4 +41,4 @@ endif
 
 " commands
 command -nargs=0 Format call AtsFormat()
-" command -nargs=0 Check SyntasticCheck patscc
+command -nargs=0 Check SyntasticCheck patscc
