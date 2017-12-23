@@ -68,7 +68,7 @@ endif
 
 " keyword highlighting
 syn keyword atsKeyword prefix postfix infix infixl infixr op nonfix
-syn keyword atsKeyword staload stadef sta dynload
+syn keyword atsKeyword staload stadef sta dynload stacst
 syn keyword atsCond if then else case sif
 syn keyword atsRepeat while
 syn keyword atsException exception raise try
