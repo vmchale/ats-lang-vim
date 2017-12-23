@@ -5,7 +5,7 @@ let g:loaded_syntastic_ats_patscc_checker = 1
 
 let g:syntastic_ats_patscc_exec = 'patscc'
 
-function! Cleanup(errors) abort " {{{2
+function! syntastic#postprocess#Cleanup(errors) abort " {{{2
    
     exec 'silent !rm -f a.out'
     exec 'echom "here"'
