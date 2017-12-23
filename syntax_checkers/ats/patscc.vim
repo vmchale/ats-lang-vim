@@ -12,7 +12,7 @@ function! SyntaxCheckers_ats_patscc_GetLocList() dict
                 \ 'fname': shellescape(expand('%') )})
 
     let errorformat =
-                \ '%f:%E: %m'
+                \ '%f: %m'
 
     let loclist = SyntasticMake({ 
             \ 'makeprg': makeprg,
