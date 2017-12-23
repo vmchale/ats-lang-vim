@@ -5,15 +5,6 @@ let g:loaded_syntastic_ats_patscc_checker = 1
 
 let g:syntastic_ats_patscc_exec = 'patscc'
 
-function! syntastic#postprocess#Cleanup(errors) abort " {{{2
-   
-    exec 'silent !rm -f a.out'
-    exec 'echom "here"'
-
-    return a:errors
-
-endfunction " }}}2
-
 function! SyntaxCheckers_ats_patscc_GetLocList() dict
     let makeprg = self.makeprgBuild({
                 \ 'exe': self.getExec(),
@@ -34,5 +25,4 @@ endfunction
 
 call g:SyntasticRegistry.CreateAndRegisterChecker({
     \ 'filetype': 'ats',
-    \ 'name': 'patscc',
-    \ 'postprocess': 'Cleanup'})
+    \ 'name': 'patscc' })
