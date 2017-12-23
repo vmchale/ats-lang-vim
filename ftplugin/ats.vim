@@ -4,7 +4,11 @@ endif
 let b:ats_ftplugin = 1
 
 if !exists('g:ats_autoformat')
-    let g:ats_autoformat = 0
+    if executable('atsfmt') == 1
+        let g:ats_autoformat = 1
+    else
+        let g:ats_autoformat = 0
+    endif
 endif
 
 set smarttab
