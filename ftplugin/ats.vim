@@ -14,9 +14,11 @@ au BufNewFile,BufRead *.*ats
 setlocal commentstring=(*\ %s\ *)
 
 function! AtsFormat()
+    let cursor = getpos('.')
     exec 'normal! gg'
     exec 'silent !atsfmt -i ' . expand('%')
     exec 'e'
+    call setpos('.', cursor)
 endfunction
 
 if g:ats_autoformat == 1
