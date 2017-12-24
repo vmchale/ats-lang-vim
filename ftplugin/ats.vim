@@ -3,6 +3,10 @@ if exists('b:ats_ftplugin')
 endif
 let b:ats_ftplugin = 1
 
+if !exists('g:ats_use_ctags')
+    let g:ats_use_ctags = 0
+endif
+
 " set config values
 if !exists('g:ats_autoformat')
     if executable('atsfmt') == 1
@@ -32,15 +36,24 @@ function! AtsFormat()
     call setpos('.', cursor)
 endfunction
 
+augroup ats
+    autocmd BufWritePost *.ats,*.dats,*.sats,*.cats silent !rm -f a.out
+augroup END
+
+if g:ats_use_ctags == 1
+    augroup ats
+        autocmd BufWritePost *.dats,*.cats,*.sats,*.hats silent !ctags -R .
+    augroup END
+endif
+
 " format on write
 if g:ats_autoformat == 1
     augroup ats
-            autocmd BufWritePost *.ats,*.dats,*.sats,*.cats call AtsFormat()
+        autocmd BufWritePost *.ats,*.dats,*.sats,*.cats call AtsFormat()
     augroup END
 endif
 
 " commands
 command -nargs=0 Format call AtsFormat()
-command -nargs=0 Check SyntasticCheck patscc
 
 map <Plug>Clear :SyntasticReset<CR>

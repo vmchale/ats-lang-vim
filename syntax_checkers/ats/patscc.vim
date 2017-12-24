@@ -13,7 +13,7 @@ function! SyntaxCheckers_ats_patscc_GetLocList() dict
 
     let errorformat =
         \ 'exit(ATS):%m,' .
-        \ '%f:%m'
+        \ '%f:\ %\d%#(line=%l\,\ offs=%c) --%m'
 
     let loclist = SyntasticMake({ 
             \ 'makeprg': makeprg,

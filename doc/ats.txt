@@ -20,13 +20,22 @@ By default, ats-vim provides one command, viz.
 Section 2: Config                                          *ATSConfig*
 
 ----------------------------------------------------------------------
-                                                  *'g:ats_autoformat'*
+                                                   *'g:ats_use_ctags'*
+
 Values: 0, 1
 Default: 0
 
+When set to 1, ctags will be called on each file write to index the
+current project. >
+    let g:ats_use_ctags=1
+<
+
+                                                  *'g:ats_autoformat'*
+Values: 0, 1
+
 When set to 1, the current buffer will be formatted every time it is
 written to. >
-    let g:ats_autoformat='1'
+    let g:ats_autoformat=0
 <
 
                                                             *ClearATS*
