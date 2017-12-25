@@ -5,10 +5,6 @@ if !exists('main_syntax')
   let main_syntax = 'ats'
 endif
 
-"
-" lexical
-"
-
 " comment highlighting
 syn keyword atsTodo TODO FIXME NOTE contained
 syn match   atscCommentError display "\*/"
@@ -18,8 +14,6 @@ syn match   atsNestedCommentError display "\*)"
 " mercilessly ripped from d.vim
 syn region  atsNestedComment start="(\*" end="\*)" contains=atsNestedComment,atsTodo,@Spell
 syn match   atsComment "//.*" contains=atsTodo
-" this rule needs to be after // (above) because of priority!
-syn region  atsComment start="////" end="\%$" contains=atsTodo
 
 "
 " denotation highlighting

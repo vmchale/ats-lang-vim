@@ -36,10 +36,6 @@ function! AtsFormat()
     call setpos('.', cursor)
 endfunction
 
-augroup ats
-    autocmd BufWritePost *.ats,*.dats,*.sats,*.cats silent !rm -f a.out
-augroup END
-
 if g:ats_use_ctags == 1
     augroup ats
         autocmd BufWritePost *.dats,*.cats,*.sats,*.hats silent !ctags -R .

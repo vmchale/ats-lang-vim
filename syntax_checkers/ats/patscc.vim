@@ -8,7 +8,7 @@ let g:syntastic_ats_patscc_exec = 'patscc'
 function! SyntaxCheckers_ats_patscc_GetLocList() dict
     let makeprg = self.makeprgBuild({
                 \ 'exe': self.getExec(),
-                \ 'args': '-DATS_MEMALLOC_LIBC -cleanaft',
+                \ 'args': '-DATS_MEMALLOC_LIBC -cleanaft -o /tmp/patscc-vim',
                 \ 'fname': shellescape(expand('%') )})
 
     let errorformat =
