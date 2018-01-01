@@ -63,7 +63,7 @@ endif
 " keyword highlighting
 syn keyword atsKeyword prefix postfix infix infixl infixr op nonfix addr
 syn keyword atsKeyword staload stadef sta dynload stacst assertloc
-syn keyword atsCond if then else case sif
+syn keyword atsCond if then else case sif when
 syn keyword atsRepeat while
 syn keyword atsException exception raise try
 syn keyword atsStatement let in where local
