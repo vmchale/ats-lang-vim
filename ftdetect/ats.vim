@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.ats,*.dats*,*.sats,*.cats,*.hats set filetype=ats
+autocmd BufNewFile,BufRead *.lats,*.ats,*.dats*,*.sats,*.cats,*.hats set filetype=ats

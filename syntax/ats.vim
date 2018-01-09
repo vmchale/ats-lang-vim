@@ -65,12 +65,13 @@ syn keyword atsKeyword prefix postfix infix infixl infixr op nonfix addr
 syn keyword atsKeyword staload stadef sta dynload stacst assertloc macdef
 syn keyword atsCond if then else case sif when
 syn keyword atsRepeat while
+syn keyword atsOperator mod
 syn keyword atsException exception raise try
 syn keyword atsStatement let in where local
 syn keyword atsStatement val and fnx fun fn llam lam fix rec var of assume castfn prfun prfn
 syn keyword atsStatement begin end
 syn keyword atsTypedef typedef sortdef viewtypedef vtypedef viewdef
-syn keyword atsStructure datatype datavtype abstype dataviewtype dataprop dataview
+syn keyword atsStructure datatype datavtype abstype dataviewtype dataprop dataview propdef absview
 syn keyword atsExternal extern implement primplmnt
 
 syn keyword atsKeyword symintr overload with
@@ -129,6 +130,7 @@ AtsHiLink atsOctalError atsError
 AtsHiLink atsIdent Identifier
 " various keywords
 AtsHiLink atsKey Keyword
+AtsHiLink atsOperator Operator
 AtsHiLink atsCond Conditional
 AtsHiLink atsRepeat Repeat
 AtsHiLink atsException Exception
