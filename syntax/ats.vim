@@ -84,7 +84,6 @@ syn keyword atsTypes string float double void
 syn match   atsSym "[%&+-\./:=@~`^|*!$#?]+\|[%&+-\./:=@~`^|*<>]+"
 
 " C preprocessor directives
-syn match   atsError display "^\s*\(%:\|#\).*$"
 syn region  atsPreCondit start="^\s*\(%:\|#\)\s*\(if\|ifdef\|ifndef\|elif\)\>" skip="\\$" end="$" end="//"me=s-1 contains=atsComment,atsCommentError
 syn match   atsPreCondit display "^\s*\(%:\|#\)\s*\(else\|endif\)\>"
 syn region  atsCppOut start="^\s*\(%\|#\)\s*if\s\+0\+\>" end=".\@=\|$" contains=atsCppOut2
