@@ -63,7 +63,7 @@ endif
 " keyword highlighting
 syn keyword atsKeyword prefix postfix infix infixl infixr op addr
 syn keyword atsKeyword staload stadef sta dynload stacst assertloc macdef
-syn keyword atsCond if then else case sif when
+syn keyword atsCond if then else case sif when ifcase
 syn keyword atsRepeat while
 syn keyword atsOperator mod
 syn keyword atsException exception raise try
