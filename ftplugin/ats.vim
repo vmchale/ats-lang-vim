@@ -45,7 +45,7 @@ endif
 " format on write
 if g:ats_autoformat == 1
     augroup ats
-        autocmd BufWritePost *.ats,*.dats,*.sats,*.cats call AtsFormat()
+        autocmd BufWritePost *.dats,*.sats,*.hats call AtsFormat()
     augroup END
 endif
 
