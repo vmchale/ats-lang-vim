@@ -17,25 +17,36 @@ syn match atsUint "\v[0-9]+u"
 syn match atsInt "\v[0-9]+"
 
 syn match atsSpecial +\v\\["nt]+
+syn match atsSpecial -\v\\[0-9]+-
 
 syn region atsString start=+"+ end=+"+ contains=atsSpecial
 
-syn keyword atsKeyword staload dynload overload with fun symintr include
-syn keyword atsKeyword lam llam
+syn keyword atsKeyword staload dynload overload with fun symintr include fn fnx and prfun prfn
+syn keyword atsKeyword lam llam fix raise of var val prval case ifcase
+syn match atsOperator "\$"
 
-syn match atsArrow "\v\=\>+"
+syn match atsKeyword "\v[\%\+\-\<\>\=!]+"
 
 syn keyword atsFixity infixr infixl prefix postfix
+
+syn keyword arrowContents cloref1 cloptr1 lincloptr cloref cloptr
+
+syn region atsArrow start="=<" end=">" contains=arrowContents
 
 syn keyword atsType void bool string char int uint charNZ strnptr Strptr0 Strptr1 nat
 syn keyword atsType datavtype datatype vtypedef dataviewtype viewtypdef typedef
 syn keyword atsType implement primplmnt extern
 
-syn match atsSpecial "\v[@\[\]]"
+syn match atsParens "[()]"
+
+syn match atsOperator "\v[@\[\]]"
 
 syn match atsMacro "\v\#.*$"
 
+highlight link atsParens Underlined
+highlight link atsArrow Special
 highlight link atsFixity Underlined
+highlight link atsOperator Special
 highlight link atsSpecial Special
 highlight link atsString String
 highlight link atsUint Number
