@@ -13,8 +13,6 @@ syn region atsNestComment start="(\*" end="\*)" contains=atsNestComment,atsTodo,
 
 syn match atsIdentifier "\v[a-zA-Z][a-zA-Z_0-9]*"
 
-syn match atsChar "\v'.'"
-
 syn match atsUint "\v[0-9]+u"
 syn match atsInt "\v[0-9]+"
 
@@ -43,6 +41,8 @@ syn keyword atsType implement primplmnt extern
 syn match atsParens "[()]"
 
 syn match atsOperator "\v[\@\']"
+
+syn match atsChar "\v'.'"
 
 syn region atsMacro start="#" end="\v$" contains=atsString
 
