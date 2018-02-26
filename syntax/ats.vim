@@ -50,7 +50,6 @@ syn keyword atsBool true false
 
 highlight link atsBool Boolean
 highlight link atsKeywordTwo Include
-highlight link atsQualName Include
 highlight link atsArrow Special
 highlight link atsFixity Underlined
 highlight link atsOperator Special
