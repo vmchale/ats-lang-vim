@@ -22,8 +22,9 @@ syn match atsSpecial -\v\\[0-9]+-
 syn region atsString start=+"+ end=+"+ contains=atsSpecial
 
 syn keyword atsKeyword staload dynload overload with fun symintr include fn fnx and prfun prfn
-syn keyword atsKeyword lam llam fix raise of var val prval case ifcase
-syn match atsOperator "\$"
+syn keyword atsKeyword lam llam fix raise of var val prval
+syn keyword atsKeywordTwo case ifcase if then else
+syn region atsQualName start="\$" end="\." contains=atsIdentifier
 
 syn match atsKeyword "\v[\%\+\-\<\>\=!]+"
 
@@ -39,11 +40,12 @@ syn keyword atsType implement primplmnt extern
 
 syn match atsParens "[()]"
 
-syn match atsOperator "\v[@\[\]]"
+syn match atsOperator "\v\@"
 
 syn match atsMacro "\v\#.*$"
 
-highlight link atsParens Underlined
+highlight link atsKeywordTwo Include
+highlight link atsQualName Include
 highlight link atsArrow Special
 highlight link atsFixity Underlined
 highlight link atsOperator Special
