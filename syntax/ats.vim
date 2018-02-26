@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 if !exists('main_syntax')
   if exists('b:current_syntax')
       finish
@@ -62,6 +64,23 @@ highlight link atsNestComment Comment
 highlight link atsKeyword Keyword
 highlight link atsType Type
 highlight link atsIdentifier Identifier
+
+syntax match logicalAnd '&&' conceal cchar=∧
+syntax match leq '<=' conceal cchar=≤
+syntax match geq '>=' conceal cchar=≥
+syntax match neq '!=' conceal cchar=≠
+syntax match logicalOr '||' conceal cchar=∨
+
+" FIXME boring white?
+hi! link Conceal Keyword
+
+syn include @c syntax/c.vim
+
+syn region madBlock matchgroup=atsCBlock start="(%{\|%{^\|%{#" end="%}" contains=@c
+
+hi def link atsCBlock Special
+
+setlocal conceallevel=1
 
 let b:current_syntax = 'ats'
 
