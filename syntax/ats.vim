@@ -47,6 +47,16 @@ syn keyword atsBool true false
 syn match atsComment "\v^\/\/.*$"
 syn region atsNestComment start="(\*" end="\*)" contains=atsNestComment,atsTodo,@Spell
 
+syntax match logicalAnd '&&' conceal cchar=∧
+syntax match leq '<=' conceal cchar=≤
+syntax match geq '>=' conceal cchar=≥
+syntax match neq '!=' conceal cchar=≠
+syntax match logicalOr '||' conceal cchar=∨
+
+syn include @c syntax/c.vim
+syn region madBlock matchgroup=atsCBlock start="(%{\|%{^\|%{#" end="%}" contains=@c
+
+highlight link Conceal Keyword
 highlight link atsBool Boolean
 highlight link atsKeywordTwo Include
 highlight link atsArrow Special
@@ -62,19 +72,6 @@ highlight link atsNestComment Comment
 highlight link atsKeyword Keyword
 highlight link atsType Type
 highlight link atsIdentifier Identifier
-
-syntax match logicalAnd '&&' conceal cchar=∧
-syntax match leq '<=' conceal cchar=≤
-syntax match geq '>=' conceal cchar=≥
-syntax match neq '!=' conceal cchar=≠
-syntax match logicalOr '||' conceal cchar=∨
-
-" FIXME boring white?
-hi! link Conceal Keyword
-
-syn include @c syntax/c.vim
-
-syn region madBlock matchgroup=atsCBlock start="(%{\|%{^\|%{#" end="%}" contains=@c
 
 hi def link atsCBlock Special
 
