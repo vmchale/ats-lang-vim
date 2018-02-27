@@ -19,7 +19,7 @@ syn match atsSpecial -\v\\[0-9]+-
 syn region atsString start=+"+ end=+"+ contains=atsSpecial
 
 syn keyword atsKeyword staload dynload overload with fun symintr include fn fnx and prfun prfn praxi
-syn keyword atsKeyword lam llam fix raise of var val prval if then else
+syn keyword atsKeyword lam llam fix raise of var val prval if then else addr
 syn keyword atsKeywordTwo case ifcase
 
 syn match atsKeyword "\v[\%\+\-\<\>\=!\:\~]+"
