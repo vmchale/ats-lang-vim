@@ -32,7 +32,7 @@ syn region atsArrow start="=<" end=">" contains=arrowContents
 syn region atsArrow start="-<" end=">" contains=arrowContents
 
 syn keyword atsType void bool string char int uint charNZ strnptr Strptr0 Strptr1 nat
-syn keyword atsType datavtype datatype vtypedef dataviewtype viewtypdef typedef
+syn keyword atsType datavtype datatype vtypedef dataviewtype viewtypdef typedef view viewdef
 syn keyword atsType implement primplmnt extern
 
 syn match atsParens "[()]"
