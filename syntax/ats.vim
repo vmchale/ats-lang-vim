@@ -8,9 +8,6 @@ if !exists('main_syntax')
 endif
 
 syn keyword atsTodo TODO FIXME contained
-syn match atsComment "\v\/\/.*$"
-syn region atsNestComment start="(\*" end="\*)" contains=atsNestComment,atsTodo,@Spell
-
 syn match atsIdentifier "\v[a-zA-Z][a-zA-Z_0-9]*"
 
 syn match atsUint "\v[0-9]+u"
@@ -24,7 +21,6 @@ syn region atsString start=+"+ end=+"+ contains=atsSpecial
 syn keyword atsKeyword staload dynload overload with fun symintr include fn fnx and prfun prfn
 syn keyword atsKeyword lam llam fix raise of var val prval if then else
 syn keyword atsKeywordTwo case ifcase
-syn region atsQualName start="\$" end="\." contains=atsIdentifier
 
 syn match atsKeyword "\v[\%\+\-\<\>\=!\:\~]+"
 
@@ -47,6 +43,9 @@ syn match atsChar "\v'.'"
 syn region atsMacro start="#" end="\v$" contains=atsString
 
 syn keyword atsBool true false
+
+syn match atsComment "\v^\/\/.*$"
+syn region atsNestComment start="(\*" end="\*)" contains=atsNestComment,atsTodo,@Spell
 
 highlight link atsBool Boolean
 highlight link atsKeywordTwo Include
