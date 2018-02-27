@@ -29,6 +29,7 @@ syn keyword atsFixity infixr infixl prefix postfix
 syn keyword arrowContents cloref1 cloptr1 lincloptr cloref cloptr
 
 syn region atsArrow start="=<" end=">" contains=arrowContents
+syn region atsArrow start="-<" end=">" contains=arrowContents
 
 syn keyword atsType void bool string char int uint charNZ strnptr Strptr0 Strptr1 nat
 syn keyword atsType datavtype datatype vtypedef dataviewtype viewtypdef typedef
