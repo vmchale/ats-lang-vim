@@ -18,8 +18,8 @@ syn match atsSpecial -\v\\[0-9]+-
 
 syn region atsString start=+"+ end=+"+ contains=atsSpecial
 
-syn keyword atsKeyword staload dynload overload with fun symintr include fn fnx and prfun prfn praxi
-syn keyword atsKeyword lam llam fix raise of var val prval if then else addr
+syn keyword atsKeyword staload dynload overload with fun symintr include fn fnx and prfun prfn praxi castfn sortdef
+syn keyword atsKeyword lam llam fix raise of var val prval if then else addr let in end
 syn keyword atsKeywordTwo case ifcase
 
 syn match atsKeyword "\v[\%\+\-\<\>\=!\:\~]+"
@@ -29,10 +29,10 @@ syn keyword atsFixity infixr infixl prefix postfix
 syn keyword arrowContents cloref1 cloptr1 lincloptr cloref cloptr
 
 syn region atsArrow start="=<" end=">" contains=arrowContents
-syn region atsArrow start="-<" end=">" contains=arrowContents
+syn region atsArrow start="-<" end=">"
 
 syn keyword atsType void bool string char int uint charNZ strnptr Strptr0 Strptr1 nat
-syn keyword atsType datavtype datatype vtypedef dataviewtype viewtypdef typedef view viewdef
+syn keyword atsType datavtype datatype vtypedef dataviewtype viewtypdef typedef view viewdef dataview abstype absvtype absviewtype datasort dataprop
 syn keyword atsType implement primplmnt extern
 
 syn match atsParens "[()]"
@@ -45,7 +45,7 @@ syn region atsMacro start="#" end="\v$" contains=atsString
 
 syn keyword atsBool true false
 
-syn match atsComment "\v^\/\/.*$"
+syn match atsComment "\v\/\/.*$"
 syn region atsNestComment start="(\*" end="\*)" contains=atsNestComment,atsTodo,@Spell
 
 syntax match logicalAnd '&&' conceal cchar=∧
