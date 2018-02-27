@@ -41,7 +41,7 @@ syn match atsOperator "\v[\@\']"
 
 syn match atsChar "\v'.'"
 
-syn region atsMacro start="#" end="\v$" contains=atsString
+syn region atsMacro start="\v^#" end="\v$" contains=atsString
 
 syn keyword atsBool true false
 
