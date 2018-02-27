@@ -37,7 +37,7 @@ syn keyword atsType implement primplmnt extern
 
 syn match atsParens "[()]"
 
-syn match atsOperator "\v[\@\']"
+syn match atsOperator "\v[\@\'\#]"
 
 syn match atsChar "\v'.'"
 
