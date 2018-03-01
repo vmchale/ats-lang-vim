@@ -46,7 +46,8 @@ syn region atsMacro start="\v^#" end="\v$" contains=atsString
 syn keyword atsBool true false
 
 syn match atsComment "\v\/\/.*$" contains=atsTodo,@Spell
-syn region atsNestComment start="(\*" end="\*)" contains=atsNestComment,atsTodo,@Spell
+syn region atsNestComment start="/\*" end="\*/" contains=atsNestComment,atsTodo,@Spell
+syn region atsNestParenComment start="(\*" end="\*)" contains=atsTodo,@Spell,atsNestParenComment
 
 syntax match logicalAnd '&&' conceal cchar=∧
 syntax match leq '<=' conceal cchar=≤
@@ -70,6 +71,7 @@ highlight link atsInt Number
 highlight link atsChar Character
 highlight link atsComment Comment
 highlight link atsNestComment Comment
+highlight link atsNestParenComment Comment
 highlight link atsKeyword Keyword
 highlight link atsType Type
 highlight link atsIdentifier Identifier
