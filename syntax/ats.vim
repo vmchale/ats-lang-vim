@@ -21,7 +21,7 @@ syn region atsString start=+"+ end=+"+ contains=atsSpecial
 syn keyword atsKeyword staload dynload overload with fun symintr include fn fnx and prfun prfn praxi castfn sortdef
 syn keyword atsKeyword lam llam fix raise of var val prval if then else addr let in begin end
 syn keyword atsKeywordTwo case ifcase
-syn keyword atsKeyword stadef sta stacst
+syn keyword atsKeyword stadef sta stacst assume
 
 syn match atsKeyword "\v[\%\+\-\<\>\=!\:\~]+"
 
