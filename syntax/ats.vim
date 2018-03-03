@@ -17,6 +17,7 @@ syn match atsSpecial +\v\\["nt]+
 syn match atsSpecial -\v\\[0-9]+-
 
 syn region atsString start=+"+ end=+"+ contains=atsSpecial
+syn match atsChar "\v'.'" contains=atsSpecial
 
 syn keyword atsKeyword staload dynload overload with fun symintr include fn fnx and prfun prfn praxi castfn sortdef
 syn keyword atsKeyword lam llam fix raise of var val prval if then else addr let in begin end
@@ -39,8 +40,6 @@ syn keyword atsType implement primplmnt extern
 syn match atsParens "[()]"
 
 syn match atsOperator "\v[\@\'\#]"
-
-syn match atsChar "\v'.'"
 
 syn region atsMacro start="\v^#" end="\v$" contains=atsString
 
