@@ -17,8 +17,6 @@ syn match atsSpecial +\v\\["nt]+
 syn match atsSpecial -\v\\[0-9]+-
 
 syn region atsString start=+"+ end=+"+ contains=atsSpecial
-syn match atsChar "\v'.'" contains=atsSpecial
-
 syn keyword atsKeyword staload dynload overload with fun symintr include fn fnx and prfun prfn praxi castfn sortdef
 syn keyword atsKeyword lam llam fix raise of var val prval if then else addr let in begin end
 syn keyword atsKeywordTwo case ifcase
@@ -55,8 +53,11 @@ syntax match geq '>=' conceal cchar=≥
 syntax match neq '!=' conceal cchar=≠
 syntax match logicalOr '||' conceal cchar=∨
 
+syn match atsChar "\v'.'"
+syn match atsChar "\v'.*'" contains=atsSpecial
+
 syn include @c syntax/c.vim
-syn region madBlock matchgroup=atsCBlock start="(%{\|%{^\|%{#" end="%}" contains=@c
+syn region cBlock matchgroup=atsCBlock start="(%{\|%{^\|%{#" end="%}" contains=@c
 
 highlight link Conceal Keyword
 highlight link atsBool Boolean
