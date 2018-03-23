@@ -27,6 +27,7 @@ syn match atsKeyword "\v[\%\+\-\<\>\=!\:\~]+"
 syn keyword atsFixity infixr infixl prefix postfix
 
 syn keyword arrowContents cloref1 cloptr1 lincloptr cloref cloptr
+syn match arrowContents '/'
 
 syn region atsArrow start="=<" end=">" contains=arrowContents
 syn region atsArrow start="-<" end=">"
