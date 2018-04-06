@@ -13,7 +13,7 @@ syn match atsIdentifier "\v[a-zA-Z][a-zA-Z_0-9]*"
 syn match atsInt "\v[0-9]+"
 syn match atsUint "\v[0-9]+u"
 
-syn match atsSpecial +\v\\["nt]+
+syn match atsSpecial +\v\\["nt\\]+
 syn match atsSpecial -\v\\[0-9]+-
 
 syn region atsString start=+"+ end=+"+ contains=atsSpecial
