@@ -19,7 +19,7 @@ endif
 " indentation rules
 set smarttab
 au BufNewFile,BufRead *.*ats
-    \ set shiftwidth=2
+    \ setl shiftwidth=2
 
 " set comment string to something prettier
 setlocal commentstring=(*\ %s\ *)
