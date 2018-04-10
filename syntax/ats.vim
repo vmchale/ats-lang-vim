@@ -58,7 +58,7 @@ syn match atsChar "\v'.'"
 syn match atsChar "\v'.*'" contains=atsSpecial
 
 syn include @c syntax/c.vim
-syn region cBlock matchgroup=atsCBlock start="(%{\|%{^\|%{#" end="%}" contains=@c
+syn region cBlock matchgroup=atsCBlock start="%{\|%{^\|%{#" end="%}" contains=@c
 
 highlight link Conceal Keyword
 highlight link atsBool Boolean
