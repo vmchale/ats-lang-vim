@@ -56,6 +56,7 @@ syntax match logicalOr '||' conceal cchar=∨
 
 syn match atsChar "\v'.'"
 syn match atsChar "\v'.*'" contains=atsSpecial
+syn match atsSpecial "\v'("
 
 syn include @c syntax/c.vim
 syn region cBlock matchgroup=atsCBlock start="%{\|%{^\|%{#" end="%}" contains=@c
