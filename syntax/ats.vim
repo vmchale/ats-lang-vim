@@ -10,6 +10,7 @@ endif
 syn keyword atsTodo TODO FIXME contained
 syn match atsIdentifier "\v[a-zA-Z][a-zA-Z_0-9]*"
 
+syn match atsHex "\v0x[0-9a-fA-F]+"
 syn match atsInt "\v[0-9]+"
 syn match atsUint "\v[0-9]+u"
 
@@ -71,6 +72,7 @@ highlight link atsSpecial Special
 highlight link atsString String
 highlight link atsUint Number
 highlight link atsInt Number
+highlight link atsHex Number
 highlight link atsChar Character
 highlight link atsComment Comment
 highlight link atsNestComment Comment
