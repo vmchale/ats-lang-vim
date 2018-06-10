@@ -35,6 +35,7 @@ syn region atsArrow start="-<" end=">"
 
 syn keyword atsType void bool string char int uint uint8 uint32 uint16 int8 int32 int16 charNZ strnptr Strptr0 Strptr1 nat lint ulint double float
 syn keyword atsType datavtype datatype vtypedef dataviewtype viewtypdef typedef view viewdef dataview abstype absvtype absviewtype datasort dataprop type viewtype vtype
+syn keyword atsType absimpl
 syn keyword atsType implement primplmnt extern
 
 syn match atsParens "[()]"
