@@ -54,6 +54,7 @@ syntax match logicalAnd '&&' conceal cchar=∧
 syntax match leq '<=' conceal cchar=≤
 syntax match geq '>=' conceal cchar=≥
 syntax match neq '!=' conceal cchar=≠
+syntax match seq '==' conceal cchar=≡
 syntax match logicalOr '||' conceal cchar=∨
 
 syn match atsChar "\v'.'"
