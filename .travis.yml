@@ -1,5 +1,6 @@
 language: python
 install:
+    - pip install enum34
     - pip install typing
     - pip install pathlib
     - pip install vim-vint
