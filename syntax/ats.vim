@@ -20,7 +20,7 @@ syn match atsSpecial -\v\\[0-9]+-
 syn region atsString start=+"+ end=+"+ contains=atsSpecial
 syn keyword atsKeyword staload dynload overload with fun symintr include fn fnx and prfun prfn praxi castfn sortdef
 syn keyword atsKeyword as lam llam fix raise of var val prval if then else addr let in begin end when where local while for prvar
-syn keyword atsKeywordTwo case ifcase
+syn keyword atsKeywordTwo case ifcase scase
 syn keyword atsKeyword stadef sta stacst assume macdef
 
 syn match atsKeyword "\v[\%\+\-\<\>\=!\:\~]+"
