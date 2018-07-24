@@ -1,5 +1,6 @@
 language: python
 install:
+    - pip install typing
     - pip install pathlib
     - pip install vim-vint
 script:
