@@ -1,5 +1,7 @@
 language: python
-install: pip install vim-vint
+install:
+    - pip install pathlib
+    - pip install vim-vint
 script:
     - vint syntax/ats.vim
     - vint ftdetect/ats.vim
