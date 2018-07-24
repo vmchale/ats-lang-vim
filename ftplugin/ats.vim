@@ -18,8 +18,9 @@ endif
 
 " indentation rules
 set smarttab
-au BufNewFile,BufRead *.*ats
-    \ setl shiftwidth=2
+augroup ats
+    au BufNewFile,BufRead *.*ats setl shiftwidth=2
+augroup END
 
 " set comment string to something prettier
 setlocal commentstring=(*\ %s\ *)
