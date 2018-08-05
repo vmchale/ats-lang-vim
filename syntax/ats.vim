@@ -29,6 +29,7 @@ syn keyword atsFixity infixr infixl prefix postfix
 
 syn keyword arrowContents cloref1 cloptr1 lincloptr cloref cloptr
 syn match atsArrow '=/=>'
+syn match atsArrow '=/=>>'
 
 syn region atsArrow start="=<" end=">" contains=arrowContents
 syn region atsArrow start="-<" end=">"
@@ -56,6 +57,7 @@ syntax match geq '>=' conceal cchar=≥
 syntax match neq '!=' conceal cchar=≠
 syntax match seq '==' conceal cchar=≡
 syntax match logicalOr '||' conceal cchar=∨
+syntax match nullPtr 'null' conceal cchar=∅
 
 syn match atsChar "\v'.'"
 syn match atsChar "\v'.*'" contains=atsSpecial
