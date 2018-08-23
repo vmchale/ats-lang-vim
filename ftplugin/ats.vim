@@ -19,7 +19,7 @@ endif
 " indentation rules
 set smarttab
 augroup ats
-    au! BufNewFile,BufRead *.*ats setl shiftwidth=2
+    au BufNewFile,BufRead *.*ats setl shiftwidth=2
 augroup END
 
 " set comment string to something prettier
@@ -39,18 +39,18 @@ endfunction
 
 if g:ats_use_ctags == 1
     augroup ats
-        autocmd! BufWritePost *.dats,*.cats,*.sats,*.hats silent !ctags -R .
+        autocmd BufWritePost *.dats,*.cats,*.sats,*.hats silent !ctags -R .
     augroup END
 endif
 
 " format on write
 if g:ats_autoformat == 1
     augroup ats
-        autocmd! BufWritePost *.dats,*.sats,*.hats call AtsFormat()
+        autocmd BufWritePost *.dats,*.sats,*.hats call AtsFormat()
     augroup END
 endif
 
 " commands
-command -nargs=0 Format call AtsFormat()
+command! -nargs=0 Format call AtsFormat()
 
 map <Plug>Clear :SyntasticReset<CR>
