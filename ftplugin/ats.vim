@@ -28,13 +28,6 @@ setlocal commentstring=(*\ %s\ *)
 " use patscc as a checker
 let g:syntastic_ats_checkers = [ 'patscc' ]
 
-function! ATSStripTrailingWhitespace()
-    let myline=line('.')
-    let mycolumn = col('.')
-    exec 'silent %s/  *$//'
-    call cursor(myline, mycolumn)
-endfunction
-
 " function to format our buffer
 function! AtsFormat()
     let cursor = getpos('.')
@@ -42,7 +35,6 @@ function! AtsFormat()
     exec 'silent !atsfmt -i ' . expand('%')
     exec 'e'
     call setpos('.', cursor)
-    call ATSStripTrailingWhitespace()
 endfunction
 
 if g:ats_use_ctags == 1
