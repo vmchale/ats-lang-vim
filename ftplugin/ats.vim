@@ -50,6 +50,17 @@ if g:ats_autoformat == 1
     augroup END
 endif
 
+function! StripTrailingWhitespace()
+    let myline=line('.')
+    let mycolumn = col('.')
+    exec 'silent %s/  *$//'
+    call cursor(myline, mycolumn)
+endfunction
+
+augroup ats
+    au BufWritePre *.dats,*.sats,*.hats silent! call StripTrailingWhitespace()
+augroup END
+
 " commands
 command! -nargs=0 Format call AtsFormat()
 
