@@ -58,7 +58,7 @@ function! StripTrailingWhitespace()
 endfunction
 
 augroup ats
-    au BufWritePre *.dats,*.sats,*.hats silent! call StripTrailingWhitespace()
+    au BufWritePost *.dats,*.sats,*.hats silent! call StripTrailingWhitespace()
 augroup END
 
 " commands
