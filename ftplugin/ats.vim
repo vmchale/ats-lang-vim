@@ -42,7 +42,7 @@ function! AtsFormat()
     exec 'silent !atsfmt -i ' . expand('%')
     exec 'e'
     call setpos('.', cursor)
-    call ATSStripTrailingWhitespce()
+    call ATSStripTrailingWhitespace()
 endfunction
 
 if g:ats_use_ctags == 1
