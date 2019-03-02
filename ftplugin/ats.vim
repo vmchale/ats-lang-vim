@@ -28,6 +28,13 @@ setlocal commentstring=(*\ %s\ *)
 " use patscc as a checker
 let g:syntastic_ats_checkers = [ 'patscc' ]
 
+function! ATSStripTrailingWhitespace()
+    let myline=line('.')
+    let mycolumn = col('.')
+    exec 'silent %s/  *$//'
+    call cursor(myline, mycolumn)
+endfunction
+
 " function to format our buffer
 function! AtsFormat()
     let cursor = getpos('.')
@@ -35,6 +42,7 @@ function! AtsFormat()
     exec 'silent !atsfmt -i ' . expand('%')
     exec 'e'
     call setpos('.', cursor)
+    call ATSStripTrailingWhitespce()
 endfunction
 
 if g:ats_use_ctags == 1
@@ -49,17 +57,6 @@ if g:ats_autoformat == 1
         autocmd BufWritePost *.dats,*.sats,*.hats call AtsFormat()
     augroup END
 endif
-
-function! StripTrailingWhitespace()
-    let myline=line('.')
-    let mycolumn = col('.')
-    exec 'silent %s/  *$//'
-    call cursor(myline, mycolumn)
-endfunction
-
-augroup ats
-    au BufWritePost *.dats,*.sats,*.hats silent! call StripTrailingWhitespace()
-augroup END
 
 " commands
 command! -nargs=0 Format call AtsFormat()
