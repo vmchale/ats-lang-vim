@@ -14,7 +14,7 @@ syn match atsInt "\v[0-9]+"
 syn match atsUint "\v[0-9]+u"
 syn match atsHex "\v0x[0-9a-fA-F]+"
 
-syn match atsSpecial +\v\\['"nt\\]+
+syn match atsSpecial +\v\\['"nt\\{]+
 syn match atsSpecial -\v\\[0-9]+-
 
 syn region atsString start=+"+ end=+"+ contains=atsSpecial
