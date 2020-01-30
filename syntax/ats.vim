@@ -7,6 +7,8 @@ if !exists('main_syntax')
   let main_syntax = 'ats'
 endif
 
+syn iskeyword @,48-57,192-255,$,_,@-@
+
 syn keyword atsTodo TODO FIXME XXX contained
 
 syn match atsIdentifier "\v[a-zA-Z][a-zA-Z_0-9]*"
@@ -47,12 +49,30 @@ syn match atsKeyword "\v[\%\+\-\<\>\=!\:\~]+"
 
 syn keyword atsFixity infixr infixl prefix postfix
 
-syn keyword arrowContents cloref1 cloptr1 lincloptr cloref cloptr
 syn match atsArrow '=/=>'
 syn match atsArrow '=/=>>'
 
-syn region atsArrow start="=<" end=">" contains=arrowContents
-syn region atsArrow start="-<" end=">"
+" These are the tags that are allowed in between -<>/:<>/=<>
+syn keyword atsFunTag fun clo cloptr cloref lin linfun linclo lincloptr prf contained
+syn keyword atsFunTag fun0 clo0 cloptr0 cloref0 lin0 linfun0 linclo0 lincloptr0 contained
+syn keyword atsFunTag fun1 clo1 cloptr1 cloref1 lin1 linfun1 linclo1 lincloptr1 contained
+
+" These are the effect tags that are allowed in between -<>/:<>/=<>
+syn keyword atsEffTag nil all ntm nonterm exn exception ref reference wrt write contained
+syn keyword atsEffTag exnref exnwrt exnrefwrt refwrt laz contained
+
+" These are the effect static constant identifiers
+syn keyword atsEffCst effnil effall effntm effexn effref effwrt
+
+syn match atsEffOps "[~!]" contained
+
+syn cluster atsEffList contains=atsFunTag,atsEffTag,atsEffOps,atsInt,atsIdentifier
+
+syn keyword atsEffmask $effmask $effmask_all $effmask_exn $effmask_ref $effmask_wrt
+syn keyword atsEffmask $effmask nextgroup=atsEffmaskArg skipwhite skipnl
+syn region atsEffmaskArg start="{" end="}" contains=@atsEffList contained
+
+syn region atsArrow start="[-:=]<" end=">" contains=@atsEffList
 
 syn keyword atsType void bool string char int uint uint8 uint32 uint16 int8 int32 int16 charNZ strnptr Strptr0 Strptr1 nat lint ulint double float size_t
 syn keyword atsType datavtype datatype vtypedef dataviewtype viewtypdef typedef view viewdef dataview abstype absvtype absviewtype absview datasort dataprop type viewtype vtype propdef prop
@@ -97,6 +117,11 @@ highlight link atsChar Character
 highlight link atsSpecial SpecialChar
 
 highlight link atsKeywordTwo Include
+highlight link atsEffmask Statement
+highlight link atsFunTag Constant
+highlight link atsEffTag Constant
+highlight link atsEffCst Constant
+highlight link atsEffOps Operator
 highlight link atsArrow Special
 highlight link atsFixity Underlined
 highlight link atsOperator Special
