@@ -41,6 +41,26 @@ syn match atsChar "\i\@<!'\\[^']*'" contains=atsSpecial
 
 syn region atsString start=+"+ end=+"+ contains=atsSpecial
 
+syn match atsAtOperator "@[({[]\@!"
+syn match atsPercOperator "%[({}]\@!"
+
+syn region atsParens start="['@`,%]\@<!(" end=")" contains=TOP
+
+syn region atsTupBoxed start="'(" end=")" contains=TOP
+syn region atsTupFlat start="@(" end=")" contains=TOP
+
+syn region atsRecBoxed start="'{" end="}" contains=TOP
+syn region atsRecFlat start="@{" end="}" contains=TOP
+
+syn region atsArrFlat matchgroup=atsArrFlat start="@\[" end="]" contains=TOP nextgroup=atsArrFlatSize,atsArrFlatElts
+syn region atsArrFlatSize matchgroup=atsArrFlat start="\[" end="]" nextgroup=atsArrFlatElts contains=TOP contained
+syn region atsArrFlatElts matchgroup=atsArrFlat start="(" end=")" contains=TOP contained
+
+syn region atsExQuantLeft matchgroup=atsExQuant start="#\[" end="]\||\@=" nextgroup=atsExQuantRight contains=TOP
+syn region atsExQuantRight matchgroup=atsExQuant start="|" end="]" contains=TOP contained
+
+syn match atsKeyword "\v[\+\-\<\>\=!\:\~]+"
+
 syn keyword atsConditional ifcase if then else case sif scase
 syn keyword atsException $raise raise try with
 
@@ -63,8 +83,6 @@ syn match atsKeyword "\(fold\|free\|view\|addr\)@"
 syn keyword atsKeyword lnot lor land lxor not xor
 syn keyword atsKeyword mod nmod ndiv
 syn keyword atsKeyword andalso orelse
-
-syn match atsKeyword "\v[\%\+\-\<\>\=!\:\~]+"
 
 syn keyword atsFixity infix infixr infixl nonfix prefix postfix
 
@@ -129,10 +147,6 @@ syn keyword atsType absimpl absreimpl assume reassume
 syn keyword atsType implement implmnt primplement primplmnt extern static
 syn keyword atsType withprop withtype withview withvtype withviewtype
 
-syn match atsParens "[()]"
-
-syn match atsOperator "\v[\@\#]"
-
 syn region atsMacro start="\v^#" end="\v$" contains=atsString
 
 syn keyword atsBool true false
@@ -166,6 +180,15 @@ highlight link atsHex Number
 highlight link atsChar Character
 highlight link atsSpecial SpecialChar
 
+highlight link atsRecBoxed atsRecord
+highlight link atsTupBoxed atsTuple
+highlight link atsRecFlat atsRecord
+highlight link atsTupFlat atsTuple
+highlight link atsArrFlat atsArray
+
+highlight link atsAtOperator Special
+highlight link atsPercOperator Operator
+
 highlight link atsCaseArrow Keyword
 highlight link atsCaseUnreachable Special
 
@@ -182,7 +205,6 @@ highlight link atsEffCst Constant
 highlight link atsEffOps Operator
 highlight link atsArrow Special
 highlight link atsFixity Underlined
-highlight link atsOperator Special
 highlight link atsKeyword Keyword
 highlight link atsIdentifier Identifier
 
