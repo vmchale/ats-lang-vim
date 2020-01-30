@@ -7,11 +7,11 @@ if !exists('main_syntax')
   let main_syntax = 'ats'
 endif
 
-syn iskeyword @,48-57,192-255,$,_,@-@
+syn iskeyword @,48-57,192-255,$,*,_,@-@
 
 syn keyword atsTodo TODO FIXME XXX contained
 
-syn match atsIdentifier "\v[a-zA-Z][a-zA-Z_0-9]*"
+syn match atsIdentifier "\(\w\|\$\)\@<!\h\(\w\|\$\|\'\)*"
 
 syn match atsInt "\c\<\d\+\(u\=l\{0,2}\|ll\=u\)\>"
 syn match atsHex "\c\<0x\x\+\(u\=l\{0,2}\|ll\=u\)\>"
@@ -40,17 +40,36 @@ syn match atsChar "\i\@<!'[^\\]'"
 syn match atsChar "\i\@<!'\\[^']*'" contains=atsSpecial
 
 syn region atsString start=+"+ end=+"+ contains=atsSpecial
-syn keyword atsKeyword staload dynload overload with fun symintr include fn fnx and prfun prfn praxi castfn
-syn keyword atsKeyword as lam llam fix raise of var val prval if then else addr let in begin end when where local while for prvar sif
-syn keyword atsKeywordTwo case ifcase scase
-syn keyword atsKeyword macdef exception rec
+
+syn keyword atsConditional ifcase if then else case sif scase
+syn keyword atsException $raise raise try with
+
+syn keyword atsRepeat while while* for for*
+syn keyword atsKeyword $break $continue
+
+syn keyword atsDebug $myfilename $myfunction $mylocation $showtype
+
+syn keyword atsFun lam lam@ llam fix fix@
+syn keyword atsFun fun fn fnx prfun prfn
+syn keyword atsFun castfn praxi
+
+syn keyword atsKeyword staload dynload overload symintr include
+syn keyword atsKeyword and as of let in begin end when where local
+syn keyword atsKeyword var val prval prvar extvar
+syn keyword atsKeyword $extval $extfcall $extmcall $vararg
+syn keyword atsKeyword sizeof exception rec
+syn match atsKeyword "\(fold\|free\|view\|addr\)@"
+
+syn keyword atsKeyword lnot lor land lxor not xor
+syn keyword atsKeyword mod nmod ndiv
+syn keyword atsKeyword andalso orelse
 
 syn match atsKeyword "\v[\%\+\-\<\>\=!\:\~]+"
 
-syn keyword atsFixity infixr infixl prefix postfix
+syn keyword atsFixity infix infixr infixl nonfix prefix postfix
 
-syn match atsArrow '=/=>'
-syn match atsArrow '=/=>>'
+syn match atsCaseArrow '=>>\='
+syn match atsCaseUnreachable '=/=>>\='
 
 " These are the tags that are allowed in between -<>/:<>/=<>
 syn keyword atsFunTag fun clo cloptr cloref lin linfun linclo lincloptr prf contained
@@ -147,7 +166,15 @@ highlight link atsHex Number
 highlight link atsChar Character
 highlight link atsSpecial SpecialChar
 
-highlight link atsKeywordTwo Include
+highlight link atsCaseArrow Keyword
+highlight link atsCaseUnreachable Special
+
+highlight link atsConditional Conditional
+highlight link atsDebug Debug
+highlight link atsRepeat Repeat
+highlight link atsException Exception
+highlight link atsFun Keyword
+
 highlight link atsEffmask Statement
 highlight link atsFunTag Constant
 highlight link atsEffTag Constant
