@@ -14,6 +14,9 @@ syn match atsInt "\v[0-9]+"
 syn match atsUint "\v[0-9]+u"
 syn match atsHex "\v0x[0-9a-fA-F]+"
 
+syn match atsFloat "\v[0-9]+\.[0-9]+f"
+syn match atsDouble "\v[0-9]+\.[0-9]+"
+
 syn match atsSpecial +\v\\['"nt\\{]+
 syn match atsSpecial -\v\\[0-9]+-
 
@@ -77,6 +80,8 @@ highlight link atsString String
 highlight link atsUint Number
 highlight link atsInt Number
 highlight link atsHex Number
+highlight link atsFloat Number
+highlight link atsDouble Number
 highlight link atsChar Character
 highlight link atsComment Comment
 highlight link atsNestComment Comment
