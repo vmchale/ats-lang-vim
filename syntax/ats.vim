@@ -54,10 +54,10 @@ syn match atsComment "\v\/\/.*$" contains=atsTodo,@Spell
 syn region atsNestComment start="/\*" end="\*/" contains=atsNestComment,atsTodo,@Spell
 syn region atsNestParenComment start="(\*" end="\*)" contains=atsTodo,@Spell,atsNestParenComment
 
-syntax match atsType 'absvt@ype'
-syntax match atsType 'vt@ype'
-syntax match atsType 'abst@ype'
-syntax match atsType 't@ype'
+syntax match atsType 'absvt@ype' contains=atsOperator
+syntax match atsType 'vt@ype' contains=atsOperator
+syntax match atsType 'abst@ype' contains=atsOperator
+syntax match atsType 't@ype' contains=atsOperator
 
 syntax match logicalAnd '&&' conceal cchar=∧
 syntax match leq '<=' conceal cchar=≤
