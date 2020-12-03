@@ -32,7 +32,7 @@ let g:syntastic_ats_checkers = [ 'patscc' ]
 function! AtsFormat()
     let cursor = getpos('.')
     exec 'normal! gg'
-    exec 'silent !atsfmt -i ' . expand('%')
+    exec 'silent !atsfmt -i ' . expand('%') . ' 2>/dev/null'
     exec 'e'
     call setpos('.', cursor)
 endfunction
