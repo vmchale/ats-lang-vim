@@ -170,7 +170,7 @@ syntax match logicalOr '||' conceal cchar=∨
 syntax match nullPtr 'null' conceal cchar=∅
 
 syn include @c syntax/c.vim
-syn region cBlock matchgroup=atsCBlock start="%{\|%{^\|%{#" end="%}" contains=@c
+syn region cBlock matchgroup=atsCBlock start="%{[#^$]\=" end="%}" contains=@c
 
 highlight link Conceal Keyword
 
