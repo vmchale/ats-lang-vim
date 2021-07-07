@@ -16,6 +16,12 @@ if !exists('g:ats_autoformat')
     endif
 endif
 
+" Set 'formatoptions' to break comment lines but not other lines,
+" and insert the comment leader when hitting <CR> or using "o".
+setlocal fo-=t fo+=croql
+
+setlocal comments=sr:/*,mb:*,ex:*/,sr:(*,mb:*,ex:*)
+
 " indentation rules
 set smarttab
 augroup ats
