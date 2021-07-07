@@ -61,6 +61,11 @@ syn region atsExQuantRight matchgroup=atsExQuant start="|" end="]" contains=TOP 
 
 syn match atsKeyword "\v[\+\-\<\>\=!\:\~]+"
 
+syn keyword atsMacroDefine macdef macrodef
+syn region atsMacroEncode start="`(" end=")" contains=TOP
+syn region atsMacroDecode start=",(" end=")" contains=TOP
+syn region atsMacroXStage start="%(" end=")" contains=TOP
+
 syn keyword atsConditional ifcase if then else case sif scase
 syn keyword atsException $raise raise try with
 
@@ -191,6 +196,11 @@ highlight link atsPercOperator Operator
 
 highlight link atsCaseArrow Keyword
 highlight link atsCaseUnreachable Special
+
+highlight link atsMacroDefine Define
+highlight link atsMacroEncode Macro
+highlight link atsMacroDecode Macro
+highlight link atsMacroXStage Macro
 
 highlight link atsConditional Conditional
 highlight link atsDebug Debug
