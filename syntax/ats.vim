@@ -198,7 +198,7 @@ syntax match geq '>=' conceal cchar=≥
 syntax match neq '!=' conceal cchar=≠
 syntax match seq '==' conceal cchar=≡
 syntax match logicalOr '||' conceal cchar=∨
-syntax match nullPtr 'null' conceal cchar=∅
+syntax match atsNullPtr '\<null\>' conceal cchar=∅
 
 syn include @c syntax/c.vim
 syn region cBlock matchgroup=atsCBlock start="%{[#^$]\=" end="%}" contains=@c
@@ -215,6 +215,7 @@ highlight link atsOctalZero SpecialChar
 highlight link atsHex Number
 highlight link atsChar Character
 highlight link atsSpecial SpecialChar
+highlight link atsNullPtr Constant
 
 highlight link atsRecBoxed atsRecord
 highlight link atsTupBoxed atsTuple
