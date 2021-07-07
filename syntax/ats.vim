@@ -7,7 +7,8 @@ if !exists('main_syntax')
   let main_syntax = 'ats'
 endif
 
-syn keyword atsTodo TODO FIXME contained
+syn keyword atsTodo TODO FIXME XXX contained
+
 syn match atsIdentifier "\v[a-zA-Z][a-zA-Z_0-9]*"
 
 syn match atsInt "\c\<\d\+\(u\=l\{0,2}\|ll\=u\)\>"
@@ -61,9 +62,10 @@ syn region atsMacro start="\v^#" end="\v$" contains=atsString
 
 syn keyword atsBool true false
 
-syn match atsComment "\v\/\/.*$" contains=atsTodo,@Spell
+syn region atsComment start="\/\/" end="$" contains=atsTodo,@Spell
 syn region atsNestComment start="/\*" end="\*/" contains=atsNestComment,atsTodo,@Spell
 syn region atsNestParenComment start="(\*" end="\*)" contains=atsTodo,@Spell,atsNestParenComment
+syn region atsRestOfFileComment start="////" end="\%$" contains=atsTodo,@Spell
 
 syntax match logicalAnd '&&' conceal cchar=∧
 syntax match leq '<=' conceal cchar=≤
@@ -97,12 +99,15 @@ highlight link atsArrow Special
 highlight link atsFixity Underlined
 highlight link atsOperator Special
 highlight link atsSpecial Special
-highlight link atsComment Comment
-highlight link atsNestComment Comment
-highlight link atsNestParenComment Comment
 highlight link atsKeyword Keyword
 highlight link atsType Type
 highlight link atsIdentifier Identifier
+
+highlight link atsComment Comment
+highlight link atsNestComment Comment
+highlight link atsNestParenComment Comment
+highlight link atsRestOfFileComment Comment
+highlight link atsTodo Todo
 
 hi def link atsCBlock Special
 
