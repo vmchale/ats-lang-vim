@@ -10,12 +10,23 @@ endif
 syn keyword atsTodo TODO FIXME contained
 syn match atsIdentifier "\v[a-zA-Z][a-zA-Z_0-9]*"
 
-syn match atsFloat "\v[0-9]+\.[0-9]+f"
-syn match atsDouble "\v[0-9]+\.[0-9]+"
+syn match atsInt "\c\<\d\+\(u\=l\{0,2}\|ll\=u\)\>"
+syn match atsHex "\c\<0x\x\+\(u\=l\{0,2}\|ll\=u\)\>"
 
-syn match atsInt "\v[0-9]+"
-syn match atsUint "\v[0-9]+u"
-syn match atsHex "\v0x[0-9a-fA-F]+"
+" visually marking the leading 0 in octal syntax
+syn match atsOctal "\c\<0\o\+\(u\=l\{0,2}\|ll\=u\)\>" contains=atsOctalZero
+syn match atsOctalZero "\<0" contained
+
+" float/double/ldouble, with dot, optional exponent
+syn match atsFloat "\c\d\+\.\d*\(e[-+]\=\d\+\)\=[fl]\="
+" float/double/ldouble, starting with a dot, optional exponent
+syn match atsFloat "\c\i\@<!\.\d\+\(e[-+]\=\d\+\)\=[fl]\=\>"
+" float/double/ldouble, without dot, with exponent
+syn match atsFloat "\c\d\+e[-+]\=\d\+[fl]\=\>"
+" hex float/double/ldouble, optional leading digits, with dot, with exponent
+syn match atsHexFloat "\c0x\x*\.\x\+p[-+]\=\d\+[fl]\=\>"
+" hex float/double/ldouble, with leading digits, optional dot, with exponent
+syn match atsHexFloat "\c0x\x\+\.\=p[-+]\=\d\+[fl]\=\>"
 
 syn match atsSpecial +\v\\['"nt\\{]+
 syn match atsSpecial -\v\\[0-9]+-
@@ -70,19 +81,22 @@ syn include @c syntax/c.vim
 syn region cBlock matchgroup=atsCBlock start="%{\|%{^\|%{#" end="%}" contains=@c
 
 highlight link Conceal Keyword
+
 highlight link atsBool Boolean
+highlight link atsString String
+highlight link atsFloat Float
+highlight link atsHexFloat Float
+highlight link atsInt Number
+highlight link atsOctal Number
+highlight link atsOctalZero SpecialChar
+highlight link atsHex Number
+highlight link atsChar Character
+
 highlight link atsKeywordTwo Include
 highlight link atsArrow Special
 highlight link atsFixity Underlined
 highlight link atsOperator Special
 highlight link atsSpecial Special
-highlight link atsString String
-highlight link atsUint Number
-highlight link atsInt Number
-highlight link atsHex Number
-highlight link atsFloat Number
-highlight link atsDouble Number
-highlight link atsChar Character
 highlight link atsComment Comment
 highlight link atsNestComment Comment
 highlight link atsNestParenComment Comment
