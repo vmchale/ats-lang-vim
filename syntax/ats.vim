@@ -61,6 +61,39 @@ syn region atsExQuantRight matchgroup=atsExQuant start="|" end="]" contains=TOP 
 
 syn match atsKeyword "\v[\+\-\<\>\=!\:\~]+"
 
+syn region atsLoadPath start=+"+ end=+"+ contains=atsLoadPathHomeLocs,atsLoadPathNgurl contained keepend
+syn match atsLoadPathHomeLocs "\"\@<=\$PATSHOMELOCS" contained
+syn region atsLoadPathNgurl start="\"\@<={" end="}" contained
+
+syn match atsStaload "^#\=staload" nextgroup=atsStaloadDecl,atsStaloadNS,atsLoadPath skipwhite skipnl
+syn match atsStaloadDecl "\<\(\w\|\$\|\'\)\+\s*=" nextgroup=atsStaloadNS,atsLoadPath contained skipwhite
+syn match atsStaloadNS "\<\$\(\w\|\$\|\'\)\+" contained
+
+syn match atsDynload "^#\=dynload" nextgroup=atsLoadPath skipwhite skipnl
+syn match atsInclude "^#include" nextgroup=atsLoadPath skipwhite skipnl
+syn match atsRequire "^#require" nextgroup=atsLoadPath skipwhite skipnl
+
+syn match atsDefine "#define\>"
+syn match atsUndefine "#undef\>"
+
+syn keyword atsDefineSpecial ATS_PACKNAME ATS_EXTERN_PREFIX ATS_STATIC_PREFIX
+syn keyword atsDefineSpecial ATS_DYNLOADFLAG ATS_DYNLOADNAME ATS_MAINATSFLAG
+
+syn match atsPreCondit "#if\(def\|ndef\)\=\>"
+syn match atsPreCondit "#elif\(def\|ndef\)\=\>"
+syn match atsPreCondit "#then\>"
+syn match atsPreCondit "#else\>"
+syn match atsPreCondit "#endif\>"
+
+syn match atsPreProc "#error\>"
+syn match atsPreProc "#prerr\>"
+syn match atsPreProc "#print\>"
+syn match atsPreProc "#assert\>"
+syn match atsPreProc "#pragma\>"
+
+syn match atsNamespace "\<\$[a-zA-Z0-9_]*\.\@="
+
+
 syn keyword atsMacroDefine macdef macrodef
 syn region atsMacroEncode start="`(" end=")" contains=TOP
 syn region atsMacroDecode start=",(" end=")" contains=TOP
@@ -78,7 +111,7 @@ syn keyword atsFun lam lam@ llam fix fix@
 syn keyword atsFun fun fn fnx prfun prfn
 syn keyword atsFun castfn praxi
 
-syn keyword atsKeyword staload dynload overload symintr include
+syn keyword atsKeyword overload symintr
 syn keyword atsKeyword and as of let in begin end when where local
 syn keyword atsKeyword var val prval prvar extvar
 syn keyword atsKeyword $extval $extfcall $extmcall $vararg
@@ -152,8 +185,6 @@ syn keyword atsType absimpl absreimpl assume reassume
 syn keyword atsType implement implmnt primplement primplmnt extern static
 syn keyword atsType withprop withtype withview withvtype withviewtype
 
-syn region atsMacro start="\v^#" end="\v$" contains=atsString
-
 syn keyword atsBool true false
 
 syn region atsComment start="\/\/" end="$" contains=atsTodo,@Spell
@@ -196,6 +227,20 @@ highlight link atsPercOperator Operator
 
 highlight link atsCaseArrow Keyword
 highlight link atsCaseUnreachable Special
+
+highlight link atsStaload Include
+highlight link atsDynload Include
+highlight link atsInclude Include
+highlight link atsRequire Include
+highlight link atsLoadPath String
+highlight link atsLoadPathHomeLocs Special
+highlight link atsLoadPathNgurl Special
+
+highlight link atsDefine Define
+highlight link atsUndefine Define
+highlight link atsPreCondit PreCondit
+highlight link atsPreProc PreProc
+highlight link atsDefineSpecial PreProc
 
 highlight link atsMacroDefine Define
 highlight link atsMacroEncode Macro
