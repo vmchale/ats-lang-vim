@@ -29,8 +29,13 @@ syn match atsHexFloat "\c0x\x*\.\x\+p[-+]\=\d\+[fl]\=\>"
 " hex float/double/ldouble, with leading digits, optional dot, with exponent
 syn match atsHexFloat "\c0x\x\+\.\=p[-+]\=\d\+[fl]\=\>"
 
-syn match atsSpecial +\v\\['"nt\\{]+
-syn match atsSpecial -\v\\[0-9]+-
+syn match atsSpecial "\\[abfnrtv]" contained
+syn match atsSpecial "\\['\"?\\{}()\[\]]" contained
+syn match atsSpecial "\\\o\{1,3}" contained
+syn match atsSpecial "\\[xX][0-9A-F]\{1,2}" contained
+
+syn match atsChar "\i\@<!'[^\\]'"
+syn match atsChar "\i\@<!'\\[^']*'" contains=atsSpecial
 
 syn region atsString start=+"+ end=+"+ contains=atsSpecial
 syn keyword atsKeyword staload dynload overload with fun symintr include fn fnx and prfun prfn praxi castfn sortdef
@@ -56,7 +61,7 @@ syn keyword atsType implement primplmnt extern
 
 syn match atsParens "[()]"
 
-syn match atsOperator "\v[\@\'\#]"
+syn match atsOperator "\v[\@\#]"
 
 syn region atsMacro start="\v^#" end="\v$" contains=atsString
 
@@ -75,10 +80,6 @@ syntax match seq '==' conceal cchar=≡
 syntax match logicalOr '||' conceal cchar=∨
 syntax match nullPtr 'null' conceal cchar=∅
 
-syn match atsChar "\v'.'"
-syn match atsChar "\v'.*'" contains=atsSpecial
-syn match atsPattern "\v'\("
-
 syn include @c syntax/c.vim
 syn region cBlock matchgroup=atsCBlock start="%{\|%{^\|%{#" end="%}" contains=@c
 
@@ -93,12 +94,12 @@ highlight link atsOctal Number
 highlight link atsOctalZero SpecialChar
 highlight link atsHex Number
 highlight link atsChar Character
+highlight link atsSpecial SpecialChar
 
 highlight link atsKeywordTwo Include
 highlight link atsArrow Special
 highlight link atsFixity Underlined
 highlight link atsOperator Special
-highlight link atsSpecial Special
 highlight link atsKeyword Keyword
 highlight link atsType Type
 highlight link atsIdentifier Identifier
